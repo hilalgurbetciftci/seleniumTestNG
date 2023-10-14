@@ -26,7 +26,7 @@ public class C04_Assertions {
 
         // sonuclarin aranacak kelimeyi icerdigini test edelim
 
-        String expectedSonucIcerik = ConfigReader.getProperty("amazonAranacakKelime");
+            String expectedSonucIcerik = ConfigReader.getProperty("amazonAranacakKelime");
         String actualSonucYazisi = amazonPage.sonucYaziElementi.getText();
         Assert.assertTrue(actualSonucYazisi.contains(expectedSonucIcerik));
 

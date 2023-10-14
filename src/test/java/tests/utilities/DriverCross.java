@@ -1,44 +1,31 @@
-package tests.utilities;
-
+package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import tests.utilities.ConfigReader;
 
 import java.time.Duration;
-
-public class Driver {
-    /*
-    JUnit'de WebDriver objesi TestBase'den geliyordu
-    TestNG extends ile baglanma zorunlulugunu ortadan kaldirmak
-    ve testi yazanlara daha fazla kontrol imkani vermek icin
-    TestBase yerine Driver class'inda static 2 method ile
-    driver olusturma ve kapatma islemlerini yapmayi tercih etmistir
-    */
-    public static WebDriver driver;// biz deger atamadigimiz için java default olarak null point eder
-    private Driver(){
-
+public class DriverCross {
+    public static WebDriver driver;
+    private DriverCross(){
     }
-
-    public static WebDriver getDriver(){
-        /*
-        dinamik olarak browser kullanmak icin configorations.properties dosyamizda
-        browser = istenenBrowser seklinde tanımlama  yaptık
-
-         */
-
-        if (driver == null){
-            String browser = ConfigReader.getProperty("browser");
+    public static WebDriver getDriver(String browser){
+        browser = browser==null ? ConfigReader.getProperty("browser") : browser ;
+        // bu satir bizim emniyet subabimiz
+        // eger parametre olarak null gonderilirse
+        // configuration.properties'deki browser degerini alacak
+        if(driver == null){
             switch (browser){
                 case "firefox" :
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver= new FirefoxDriver();
                     break;
                 case "safari" :
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
+                    driver= new SafariDriver();
                     break;
                 case "edge" :
                     WebDriverManager.edgedriver().setup();
@@ -48,10 +35,9 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
-
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
     }
     public static void closeDriver(){
@@ -62,8 +48,19 @@ public class Driver {
     }
     public static void quitDriver(){
         if (driver != null){
-            driver.close();
+            driver.quit();
             driver=null;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

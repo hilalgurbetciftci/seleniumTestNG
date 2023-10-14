@@ -1,6 +1,11 @@
 package pages;
 
-public class ZeroBank {
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import tests.utilities.Driver;
+
+public class ZeroAppPage {
     public ZeroAppPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }

@@ -11,12 +11,14 @@ public class QualitydemyPage {
     }
     @FindBy(linkText = "Log in")
     public WebElement ilkLoginlink;
-    @FindBy(xpath = "//div[@class='cookieButton']")
-    public WebElement cookies;
+    @FindBy(xpath = "//*[@onclick='cookieAccept();']")
+    public WebElement coocies;
     @FindBy(id = "login-email")
     public WebElement emailKutusu;
     @FindBy(id = "login-password")
     public WebElement passwordKutusu;
-    @FindBy(xpath = "//button[text()=‘Login’]")
+    @FindBy(xpath = "//button[normalize-space()='Login']")
     public WebElement sonLogin;
+    @FindBy(linkText = "My courses")
+    public WebElement basariliGiris;
 }

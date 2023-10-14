@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!--
+test xml ile
+
+
+-->
+
+<suite name="paralel calistirma" thread-count="2" parallel="tests">
+    <test name="browser1">
+
+        <packages>
+           <package name="tests.day16_testNG_framework"></package> 
+            
+            
+            
+            
+        </packages>
+    </test>
+    <test name="browser2">
+        <packages>
+            <package name="tests.day17TestNGFramework_assertions"></package>
+        </packages>
+    </test>
+</suite>

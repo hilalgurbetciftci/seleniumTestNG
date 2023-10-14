@@ -21,7 +21,7 @@ public class C05_qualityDemyNegatifLoginTest {
         Assert.assertTrue(qualitydemyPage.emailKutusu.isDisplayed());
         Driver.closeDriver();
     }
-    @Test
+    @Test(groups = {"smoke","e2e"})
     public void gecersizEmailTest(){
         //1- https://www.qualitydemy.com/ anasayfasina gidin
         Driver.getDriver().get("https://www.qualitydemy.com/");
@@ -35,7 +35,7 @@ public class C05_qualityDemyNegatifLoginTest {
         Assert.assertTrue(qualitydemyPage.emailKutusu.isDisplayed());
         Driver.closeDriver();
     }
-    @Test
+    @Test(groups = {"smoke","regression"})
     public void gecersizEmailvePasswordTest(){
         //1- https://www.qualitydemy.com/ anasayfasina gidin
         Driver.getDriver().get("https://www.qualitydemy.com/");

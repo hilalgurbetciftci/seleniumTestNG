@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class C01_Priority {
-    @Test(priority = 80)
+    @Test(groups = {"smoke","e2e"})
     public void carpmaTest(){
         int a= 10;
         int b= 20;
@@ -12,7 +12,7 @@ public class C01_Priority {
         Assert.assertTrue(a*b>100);
 
     }
-    @Test(priority = -100)
+    @Test(groups = {"smoke","regression"})
     public void toplamaTest(){
         int a= 10;
         int b= 20;
@@ -21,7 +21,7 @@ public class C01_Priority {
 
 
 }
-    @Test(priority = 1)
+    @Test(groups = {"regression"})
     public void cikarmaTest(){
         int a= 10;
         int b= 20;

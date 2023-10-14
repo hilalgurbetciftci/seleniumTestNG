@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="cross browser sirali calistirma" >
+
+    <test name="chrome ile calisacak testler" >
+        <parameter name="browser" value="chrome"></parameter>
+        <packages>
+            <package name="tests.day20_crossBrowserCalisacakTestler"></package>
+        </packages>
+
+
+    </test>
+    <test name="firefox ile calisacak testler">
+        <parameter name="browser" value="firefox"></parameter>
+        <packages>
+            <package name="tests.day20_crossBrowserCalisacakTestler"></package>
+        </packages>
+
+    </test>
+</suite>
+
+
+<!--
+cross browser icin framewor'de duzenlemeler yapmak gerek
+1-xml dosyasinda farkli browsers ile calistirmak istedigimiz dosyalari
+farkli test taglari altinda secilir
+
+ 2- her browser icin hazirlanan testlere parametre olarak browserler atanir
+
+ 3- parameter olarak xml'e yazilan browser
+ @parameter notasyonu sayesinde TestBaseCross class'inda okunur
+
+ 4- TestBaseCross xml dosyasindan parametre olarak alinan browser kullanilip
+ DriverCross class'inda istenen browser ile webdriver olusturulur ve driver objesine kaydedilir
+
+ 5- Cross Browser testler ozel duzenleme ile olusturuldugundan driver kullanilacagi zaman
+ pages sayfalarinda yer alan locatorlar kullanilamazlar
+  locatorlar cross browser ile calisacak test methodlarinda yapilmalidir
+
+
+  Cross Browser testler
+  framework'deki tum testler icin degil
+  ozel olarak belirlenen sinirli sayidaki test icin kullanilir
+
+
+
+ -->

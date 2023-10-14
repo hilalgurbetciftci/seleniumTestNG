@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Classlari calistirma">
+    <test name="Secilmis Classlari calistirma">
+        <classes>
+            <class name="tests.day15_TestNGFrameWork.C01_Priority"></class>
+            <class name="tests.day15_TestNGFrameWork.C02_dependsOnMethods"></class>
+            <class name="tests.day16_testNG_framework.C04_QualitydemyPozitifLogin"></class>
+
+        </classes>
+    </test>
+</suite>
